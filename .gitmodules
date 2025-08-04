@@ -1,0 +1,3 @@
+[submodule "diffusion_policy/robots/ark_franka"]
+	path = diffusion_policy/robots/ark_franka
+	url = https://github.com/Robotics-Ark/ark_franka.git

@@ -31,3 +31,5 @@ The training loop consumes the trajectories recorded above and writes checkpoint
 ## Rollout / Deployment
 
 Deploy a trained policy in simulation using the scripts in diffusion_policy/rollout/.
+
+NOTE: A pretrained model is not provided due to github file size limitations
