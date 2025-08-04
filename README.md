@@ -1,13 +1,33 @@
-# ark_template
+# Diffusion Policies in Ark
 
-Template for Ark packages.
+A minimal, end‑to‑end pipeline for learning diffusion‑based manipulation policies on the Franka Emika Panda robot in simulation
 
-# Usage
+Repository Layout
 
-1. Create a new repository, make sure to
-   - name it `ark_NAME` where `NAME` is meaningful
-   - select `ark_template` as the template directory
-2. Clone the repository and change directory: `cd ark_NAME`
-3. Run generation: `python gen.py ...`
-   - make sure to add required arguments
-   - you can run `python gen.py --help`
+```
+ark_diffusion_policies_on_franka/
+├── diffusion_policy/
+│   ├── config/           # YAML & JSON hyper‑parameter files
+│   ├── data_collection/ # Nodes for recording demonstrations
+│   ├── robots/          # simulation abstractions
+│   ├── rollout/         # Inference scripts to deploy a trained policy
+│   └── training/        # Training loops & utilities
+├── gen.py               # Utility code‑generation script
+├── .gitignore
+├── LICENSE
+└── README.md            # You are here
+```
+
+TL;DR – Run everything under data_collection/ to collect data, everything under training/ to train the model, and everything under rollout/ to deploy the trained policy.
+
+## Data Collection
+
+All launch files & nodes live in diffusion_policy/data_collection/. They stream sensor observations & joint commands, saving them as trajectory JSON/NPZ files.
+
+## Training
+
+The training loop consumes the trajectories recorded above and writes checkpoints to training/output/…
+
+## Rollout / Deployment
+
+Deploy a trained policy in simulation using the scripts in diffusion_policy/rollout/.
